@@ -3,7 +3,12 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset"
+@import "compass"
+@import "vendor/normalize"
+
+*
+  +box-sizing(border-box)
+  position: relative
 
 /* ==|== primary styles =====================================================
    Author: Rob McCormack
@@ -16,20 +21,11 @@ a,
 a:visited
   color: #569bb8
   text-decoration: none
-
-  -webkit-transition: color 0.2s linear
-  -moz-transition: color 0.2s linear
-  -ms-transition: color 0.2s linear
-  -o-transition: color 0.2s linear
-  transition: color 0.2s linear
+  +transition(color 0.2s linear)
 
 button,
 a.btn
-  -webkit-transition: background 0.2s linear
-  -moz-transition: background 0.2s linear
-  -ms-transition: background 0.2s linear
-  -o-transition: background 0.2s linear
-  transition: background 0.2s linear
+  +transition(background 0.2s linear)
 
 #main-header h1 a, #main-header h1 a:visited
   color: #efefef
@@ -48,6 +44,7 @@ a:focus,
 #main-header h1 a:hover,
 #main-header h1 a:focus
   color: #bbb
+
 /* =============================================================================
    Typography
    ========================================================================== */
@@ -145,7 +142,6 @@ body
 #main-header
   background: #2f2f2f url(../img/darkdenim4.png) 0 0 fixed
   border-bottom: #444 solid 4px
-  -webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,.8)
   box-shadow: inset 0px 0px 10px rgba(0,0,0,.8)
 
 #main-header .centered
@@ -180,6 +176,7 @@ section:before, section:after,
 aside:before, aside:after
   background: rgba(0, 0, 0, 0.7)
   bottom: 20px
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2)
   content: ""
   left: 15px
   max-width: 50%
@@ -188,31 +185,17 @@ aside:before, aside:after
   width: 50%
   z-index: -1
 
-  -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7)
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2)
-  -webkit-transform: rotate(-2deg)
-  -moz-transform: rotate(-2deg)
-  -o-transform: rotate(-2deg)
-  -ms-transform: rotate(-2deg)
-  transform: rotate(-2deg)
+  +transform(rotate(-2deg))
 
 article:after, section:after,
 aside:after
   left: auto
   right: 15px
 
-  -webkit-transform: rotate(3deg)
-  -moz-transform: rotate(3deg)
-  -o-transform: rotate(3deg)
-  -ms-transform: rotate(3deg)
-  transform: rotate(3deg)
+  +transform(rotate(3deg))
 
 .work-item, .post
-  -webkit-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
-  -moz-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
-  -ms-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
-  -o-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
-  transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
+  +transition(top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1))
   top: 0
 
 .enter
@@ -392,11 +375,7 @@ article .gallery a
   padding: 5px 10px
   text-align: justify
 
-  -webkit-transition: background 0.2s linear
-  -moz-transition: background 0.2s linear
-  -ms-transition: background 0.2s linear
-  -o-transition: background 0.2s linear
-  transition: background 0.2s linear
+  +transition(background 0.2s linear)
 
 .reply-hightlight
   background: #eee
