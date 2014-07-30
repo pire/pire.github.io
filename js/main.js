@@ -153,21 +153,26 @@
 
             $('#close').click(); // close the contact form
 
-            $con.load(url, function() {
-                hideLazyLoadImg(); // hide those lazy loaders
+            $.ajax({
+                url: url,
+                dataType: "html"
+            }).done(function( responseText ) {
+
+                var appending = $("<div>").append( $.parseHTML( responseText ) );
+
+                $con.removeClass('loading');
+
+                // append the extra content innit?
+                $con.html(appending.find('#content').html());
+
+                $('a.selected').removeClass('selected');
+                $('a[href="' + url + '"]').addClass('selected');
+
 
                 if( typeof $.fn.placeholder !== 'undefined' )
                     $('input, textarea').placeholder();
 
-                $con.find('>div').hide();
-
-                $('a.selected').removeClass('selected');
-
-                var splitUp = url.split('/'),
-                    blogPage = ( url === '/' || (splitUp.length > 1 && splitUp[1] === 'blog') ),
-                    selection = blogPage ? '[href="/"], a[href="' + url + '"]' : '[href="' + url + '"]';
-
-                $('a'+ selection).addClass('selected');
+                hideLazyLoadImg()
 
                 $con.find('>div').fadeIn(400, function() {
                     if( hash.length > 1 && $('#' + hash[1]) ) {
@@ -175,16 +180,8 @@
                             scrollTop: $('#' + hash[1]).offset().top
                         }, 600);
                     }
-
                     $con.removeClass('swapping');
                 });
-
-                // since pushstate title doesn't work everywhere
-                var $title = $con.find('#ajax-title');
-                if( $title.length ) {
-                    document.title = $title.text();
-                    $title.remove();
-                }
             });
         });
     }
