@@ -1,0 +1,676 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset"
+
+/* ==|== primary styles =====================================================
+   Author: Rob McCormack
+   ========================================================================== */
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+a,
+a:visited
+  color: #569bb8
+  text-decoration: none
+
+  -webkit-transition: color 0.2s linear
+  -moz-transition: color 0.2s linear
+  -ms-transition: color 0.2s linear
+  -o-transition: color 0.2s linear
+  transition: color 0.2s linear
+
+button,
+a.btn
+  -webkit-transition: background 0.2s linear
+  -moz-transition: background 0.2s linear
+  -ms-transition: background 0.2s linear
+  -o-transition: background 0.2s linear
+  transition: background 0.2s linear
+
+#main-header h1 a, #main-header h1 a:visited
+  color: #efefef
+
+#main-header nav a,
+#main-header nav a:visited
+  color: #bbb
+
+a:hover,
+a:focus,
+#main-header nav a:hover,
+#main-header nav a:focus,
+#main-header nav a.selected
+  color: #27bfff
+
+#main-header h1 a:hover,
+#main-header h1 a:focus
+  color: #bbb
+/* =============================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5
+  margin: 0 0 15px
+
+p, ul, ol
+  margin: 0 0 15px
+
+p:last-child, ul:last-child, ol:last-child
+  margin-bottom: 5px
+
+ul, ol
+  list-style-position: outside
+  margin-left: 15px
+  padding: 0 0 0 15px
+
+ul
+  list-style-type: square
+
+ul ul
+  margin: 0
+
+#main-header h1
+  font-family: 'Sonsie One', cursive
+  font-size: 24px
+  font-weight: normal
+  line-height: 30px
+  padding-top: 20px
+
+#author-info
+  color: #fff
+  font-size: 0.9em
+  overflow: hidden
+
+@media only screen and (max-width: 420px)
+  #author-info
+    height: auto !important
+
+.hidden-author
+  display: none
+
+#author-info p
+  margin-bottom: 5px
+
+body
+  font-family : Helvetica, Arial, Geneva, sans-serif
+  font-size: 0.9em
+
+body, textarea, input
+  color: #555
+
+nav a,
+nav a:visited
+  font-family: 'Comfortaa', Arial, Geneva, sans-serif
+  display: inline-block
+  margin-left: 10px
+
+.message-to-user
+  font-size: 16px
+  font-style: italic
+  line-height: 20px
+  max-width: 600px
+  margin: 0 auto 20px
+  text-align: center
+
+#secondary h2
+  font-size: 1.2em
+
+#secondary ul, #secondary ol
+  padding-left: 0
+
+pre, code, kbd, samp
+  background: #efefef
+  border: 2px solid #dedede
+  display: block
+  margin: 0 0 15px
+  padding: 10px
+
+/* =============================================================================
+   Layout
+   ========================================================================== */
+html, body
+  height: 100%
+
+#wrap
+  margin-bottom: -39px
+  min-height: 100%
+  padding-bottom: 100px
+
+body
+  background: #efefef
+  overflow-y: scroll
+
+#main-header
+  background: #2f2f2f url(../img/darkdenim4.png) 0 0 fixed
+  border-bottom: #444 solid 4px
+  -webkit-box-shadow: inset 0px 0px 10px rgba(0,0,0,.8)
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,.8)
+
+#main-header .centered
+  padding: 0 20px
+
+nav
+  font-weight: bold
+  padding: 5px 0
+  text-align: right
+  z-index: 21
+
+#content.swapping
+  background: url(../img/loader.gif) 50% 50% no-repeat fixed
+  min-height: 500px
+
+#content section,
+#content article,
+#content aside,
+.comment
+  background: #fff
+  border: solid 1px #ccc
+  margin-top: 20px
+  padding: 12px 20px
+
+footer
+  padding: 10px 0
+  text-align: center
+
+/* shadows */
+article:before, article:after,
+section:before, section:after,
+aside:before, aside:after
+  background: rgba(0, 0, 0, 0.7)
+  bottom: 20px
+  content: ""
+  left: 15px
+  max-width: 50%
+  position: absolute
+  top: 60%
+  width: 50%
+  z-index: -1
+
+  -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7)
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2)
+  -webkit-transform: rotate(-2deg)
+  -moz-transform: rotate(-2deg)
+  -o-transform: rotate(-2deg)
+  -ms-transform: rotate(-2deg)
+  transform: rotate(-2deg)
+
+article:after, section:after,
+aside:after
+  left: auto
+  right: 15px
+
+  -webkit-transform: rotate(3deg)
+  -moz-transform: rotate(3deg)
+  -o-transform: rotate(3deg)
+  -ms-transform: rotate(3deg)
+  transform: rotate(3deg)
+
+.work-item, .post
+  -webkit-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
+  -moz-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
+  -ms-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
+  -o-transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
+  transition: top 0.6s cubic-bezier(0.1, 0.230, 0.805, 1)
+  top: 0
+
+.enter
+  top: 120px !important
+
+.enter:nth-child(1),
+.enter:nth-child(2)
+  top: 0 !important
+
+/* About */
+#author-info a
+  font-weight: bold
+
+#author-info .text
+  padding: 0 0 10px 95px
+
+#author-image
+  border: solid 2px #efefef
+  height: 75px
+  position: absolute
+  width: 75px
+
+#ajax-title
+  display: none
+
+/* Listings */
+.post h1
+  margin-bottom: 0
+
+.date
+  font-size: 0.9em
+  display: block
+  margin: 0 0 15px
+
+.work-item h1 span
+  color: #999
+  font-size: 14px
+  font-style: italic
+  font-weight: normal
+
+blockquote
+  color: #999
+  font-style: italic
+  margin: 0 0 8px
+  text-align: center
+
+blockquote:before
+  content: '"'
+  float: left
+  font-family: georgia
+  font-size: 40px
+  margin-top: -10px
+
+blockquote:after
+  content: '"'
+  float: right
+  font-family: georgia
+  font-size: 40px
+  margin-top: -10px
+
+.tags
+  font-style: italic
+  text-align: right
+
+.tags .selected
+  font-weight: bold
+
+/* =============================================================================
+   Gallery
+   ========================================================================== */
+.gallery
+  clear: both
+  text-align: center
+
+article .gallery a
+  display: inline-block
+  min-width: 166px
+
+@media screen and (max-width : 481px)
+  article .gallery a
+    display: none
+
+  article .gallery a:first-child
+    display: inline-block
+
+/* =============================================================================
+   Contact Form
+   ========================================================================== */
+#close
+  background: url(../img/close.png) 0 0 no-repeat
+  display: block
+  float: right
+  height: 32px
+  overflow: hidden
+  text-indent: 32px
+  white-space: nowrap
+  width: 32px
+  z-index: 2
+
+#close:hover
+  background-position: 0 -32px
+
+#contact
+  display: none
+
+#contact-form label
+  color: #fff
+  display: block
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button
+  margin: 2px 0 15px
+
+#contact-form input,
+#contact-form textarea
+  border: solid 1px #999
+  display: block
+  padding: 5px 10px 4px
+  width: 100%
+
+#contact-form textarea
+  resize: none
+
+#try-again
+  text-decoration: underline
+
+#contact-feedback
+  display: none
+  height: 100%
+  width: 100%
+
+#contact-feedback.loaded
+  display: block
+
+#message, #err-message
+  color: #27bfff
+  margin: 30px auto
+  width: 500px
+
+#err-message
+  color: #f94563
+
+
+/* =============================================================================
+   Comments
+   ========================================================================== */
+.comments-title
+  font-style: italic
+  margin: 30px 20px 10px
+
+
+#comments,
+#comments ul
+  list-style: none
+  margin: 0
+  padding: 0
+
+.comment
+  clear: both
+  margin-top: 5px
+  padding: 12px 10px 12px
+
+.hidden-comment
+  display: none
+
+.comment:first-child
+  margin-top: 0
+
+.comment-datetime
+  color: #777
+  font-size: 11px
+  font-style: italic
+
+.comment-body
+  margin: 12px 0 10px
+  padding: 5px 10px
+  text-align: justify
+
+  -webkit-transition: background 0.2s linear
+  -moz-transition: background 0.2s linear
+  -ms-transition: background 0.2s linear
+  -o-transition: background 0.2s linear
+  transition: background 0.2s linear
+
+.reply-hightlight
+  background: #eee
+
+.comment-author
+  font-size: 13px
+  font-weight: bold
+  padding: 0 10px
+
+.comment-author img
+  box-shadow: 0 0 0 3px #569bb8
+  margin: 5px 5px 0 2px
+  vertical-align: middle
+
+.comment-author a:hover img
+  box-shadow: 0 0 0 3px #27bfff
+  -moz-animation: bounceOut .4s linear
+  -webkit-animation: bounceOut .4s linear
+
+@-moz-keyframes bounceOut
+  0%
+    box-shadow: 0 0 0 1px #27bfff
+  25%
+    box-shadow: 0 0 0 0px #27bfff
+  50%
+    box-shadow: 0 0 0 5px #27bfff
+  75%
+    box-shadow: 0 0 0 2px #27bfff
+  100%
+    box-shadow: 0 0 0 3px #27bfff
+
+@-webkit-keyframes bounceOut
+  0%
+    box-shadow: 0 0 0 1px #27bfff
+  25%
+    box-shadow: 0 0 0 0px #27bfff
+  50%
+    box-shadow: 0 0 0 5px #27bfff
+  75%
+    box-shadow: 0 0 0 2px #27bfff
+  100%
+    box-shadow: 0 0 0 3px #27bfff
+
+.comment-reply
+  z-index: 2
+
+/* replies */
+#comments ul
+  margin: 0
+  padding-left: 18px
+
+#comments ul li
+  border-color: #eee
+  border-width: 0 0 0 1px
+  margin: 0
+  padding: 20px 0 0 20px
+
+/* form */
+.comment .comment-form
+  clear: both
+
+.comment-form.collapsed input,
+.comment-form.collapsed button,
+.comment-form.collapsed .btn,
+.comment-form.collapsed .feedback-msg
+  display: none
+
+.comment-form.collapsed textarea
+  height: 30px
+  min-height: 0
+  overflow: hidden
+  resize: none
+
+.comment-form input,
+.comment-form textarea
+  border: solid 1px #ccc
+  display: inline-block
+  padding: 6px 8px
+  width: 100%
+
+.comment-form input,
+.comment-form textarea,
+.comment-form button,
+.comment-form .button
+  margin-bottom: 8px
+  margin-top: 12px
+
+.comment-form input.name
+  margin-right: 20px
+
+.comment-form textarea
+  display: block
+  margin-bottom: 12px
+  min-height: 120px
+  width: 100%
+
+.comment-form .full-width,
+.full-width
+  width: 100%
+
+.feedback-msg
+  color: #e55
+  display: inline-block
+  line-height: 32px
+  min-height: 32px
+  min-width: 32px
+  vertical-align: middle
+
+.feedback-msg.true
+  color: #595
+
+.feedback-msg.submitting
+  background: url(../img/loader.gif) 0 0 no-repeat
+
+button,
+.btn,
+a.btn
+  background: #f5f5f5
+  border: 1px solid rgba(0,0,0,0.1)
+  border-radius: 2px
+  color: #666
+  display: inline-block
+  font-size: 12px
+  line-height: 20px
+  margin-right: 16px
+  min-width: 84px
+  padding: 5px 10px
+  text-align: center
+  text-shadow: 0 1px rgba(0,0,0,0.1)
+
+button:hover,
+.btn:hover,
+button:focus,
+.btn:focus
+  background: #f8f8f8
+  box-shadow: 0 0 4px rgba(0,0,0,0.2)
+  color: #666
+
+button.pos,
+.btn.pos,
+button.pos:disabled,
+button.pos:disabled:hover,
+button.pos:disabled:focus
+  background: #569bb8
+  border-color: #569bb8
+  color: #fff
+
+button.pos:hover,
+.btn.pos:hover,
+button.pos:focus,
+.btn.pos:focus
+  background: #27bfff
+
+button.pos:disabled
+  opacity: 0.6
+
+/* ==|== media queries ======================================================
+   EXAMPLE Media Query for Responsive Design.
+   This example overrides the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (max-width : 481px)
+  #close
+    display: none !important
+
+  .enter
+    top: 0 !important
+
+@media only screen and (min-width : 980px)
+  article .gallery
+    margin-left: -6px
+    width: 964px
+
+@media only screen and (min-width : 481px)
+  ul, ol
+    padding: 0 0 0 40px
+
+  .centered
+    margin: 0 auto
+    max-width: 980px
+
+  #main-header
+    left: 0
+    position: fixed
+    right: 0
+    top: 0
+    z-index: 20
+
+  #main-header .centered
+    min-height: 66px
+    overflow: hidden
+
+  #main-header h1
+    font-size: 29px
+    line-height: 40px
+
+  nav
+    bottom: 24px
+    padding: 0
+    position: absolute
+    right: 0
+
+  #content
+    padding-top: 192px
+
+  .scroller #main-header .centered
+    height: auto
+
+  .scroller #content
+    padding-top: 96px
+
+  #primary
+    float: left
+    width: 76.6%
+
+  #primary article,
+  #primary section
+    margin-right: 20px
+
+  #secondary
+    float: right
+    width: 23.4%
+
+  #author-info
+    width: 480px
+
+  #author-info .text
+    padding-bottom: 18px
+
+
+  /* listings */
+  .work-image
+    float: left
+    margin: -12px 20px -12px -20px
+    max-width: 400px
+
+  .work-item header
+    float: left
+    margin: 0 18px 0 0
+    width: 264px
+
+  .work-item-content
+    float: right
+    max-width: 650px
+
+  article .gallery a
+    margin: 0 4px 0 -14px
+
+  article .gallery a:nth-child(4n)
+    margin-right: 0
+
+  article .gallery img
+    max-height: 274px
+    max-width: 246px
+
+  /* contact form */
+  #contact-form
+    margin: 0 auto
+    width: 600px
+
+  #contact-form input[type=email]
+    max-width: 300px
+
+  #contact-form textarea
+    min-height: 200px
+
+  /* comments */
+  #comments,
+  #comments ul
+    margin: 0 20px 0 0
+
+  #comments ul
+    padding-left: 58px
+
+  .comment-form input
+    width: 332px
