@@ -1,9 +1,11 @@
 ---
-layout: default
+layout: page
+title: Work
+permalink: /work/
 ---
 
 <div class="home">
-  {% for post in site.categories.blog %}
+  {% for post in site.categories.work %}
   <section class="post enter">
     <h2>
       <a href="{{ post.url | prepend: site.baseurl }}"
