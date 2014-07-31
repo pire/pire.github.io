@@ -7,7 +7,8 @@
         </a>
       </h1>
 
-      <div id="author-info">
+      <div id="author-info"
+        {% if page.url != '/' %} class="hidden-author"{% endif %}>
         <img id="author-image" src="http://2.gravatar.com/avatar/6f6a07ac9ca344e9962e76c3df3a0624?s=75" alt="" />
 
         <div class="text">
@@ -38,10 +39,15 @@
       </div>
 
       <nav role="navigation">
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a href="{{ page.url | prepend: site.baseurl }}">
-            {{ page.title }}
+        <a href="{{ '/' | prepend: site.baseurl }}"
+          {% if page.url == '/' %}class="selected"{% endif %}>
+          Blog
+        </a>
+        {% for navItem in site.pages %}
+          {% if navItem.title %}
+          <a href="{{ navItem.url | prepend: site.baseurl }}"
+            {% if page.url == navItem.url %}class="selected"{% endif %}>
+            {{ navItem.title }}
           </a>
           {% endif %}
         {% endfor %}

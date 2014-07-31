@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-    <body>
+    <body{% if page.url != '/' %} class="scroller"{% endif %}>
 
     {% include header.html %}
 
