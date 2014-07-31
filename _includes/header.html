@@ -43,6 +43,7 @@
           {% if page.url == '/' %}class="selected"{% endif %}>
           Blog
         </a>
+
         {% for navItem in site.pages %}
           {% if navItem.title %}
           <a href="{{ navItem.url | prepend: site.baseurl }}"
@@ -51,6 +52,10 @@
           </a>
           {% endif %}
         {% endfor %}
+
+        <a href="#contact" id="contact-toggle" title="Get in touch" class="njx">
+          Contact
+        </a>
       </nav>
 
       <div id="contact">

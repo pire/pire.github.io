@@ -159,8 +159,7 @@ nav
 
 #content section,
 #content article,
-#content aside,
-.comment
+#content aside
   background: #fff
   border: solid 1px #ccc
   margin-top: 20px
@@ -344,155 +343,8 @@ article .gallery a
   color: #f94563
 
 
-/* =============================================================================
-   Comments
-   ========================================================================== */
-.comments-title
-  font-style: italic
-  margin: 30px 20px 10px
-
-
-#comments,
-#comments ul
-  list-style: none
-  margin: 0
-  padding: 0
-
-.comment
-  clear: both
-  margin-top: 5px
-  padding: 12px 10px 12px
-
-.hidden-comment
-  display: none
-
-.comment:first-child
-  margin-top: 0
-
-.comment-datetime
-  color: #777
-  font-size: 11px
-  font-style: italic
-
-.comment-body
-  margin: 12px 0 10px
-  padding: 5px 10px
-  text-align: justify
-
-  +transition(background 0.2s linear)
-
-.reply-hightlight
-  background: #eee
-
-.comment-author
-  font-size: 13px
-  font-weight: bold
-  padding: 0 10px
-
-.comment-author img
-  box-shadow: 0 0 0 3px #569bb8
-  margin: 5px 5px 0 2px
-  vertical-align: middle
-
-.comment-author a:hover img
-  box-shadow: 0 0 0 3px #27bfff
-  -moz-animation: bounceOut .4s linear
-  -webkit-animation: bounceOut .4s linear
-
-@-moz-keyframes bounceOut
-  0%
-    box-shadow: 0 0 0 1px #27bfff
-  25%
-    box-shadow: 0 0 0 0px #27bfff
-  50%
-    box-shadow: 0 0 0 5px #27bfff
-  75%
-    box-shadow: 0 0 0 2px #27bfff
-  100%
-    box-shadow: 0 0 0 3px #27bfff
-
-@-webkit-keyframes bounceOut
-  0%
-    box-shadow: 0 0 0 1px #27bfff
-  25%
-    box-shadow: 0 0 0 0px #27bfff
-  50%
-    box-shadow: 0 0 0 5px #27bfff
-  75%
-    box-shadow: 0 0 0 2px #27bfff
-  100%
-    box-shadow: 0 0 0 3px #27bfff
-
-.comment-reply
-  z-index: 2
-
-/* replies */
-#comments ul
-  margin: 0
-  padding-left: 18px
-
-#comments ul li
-  border-color: #eee
-  border-width: 0 0 0 1px
-  margin: 0
-  padding: 20px 0 0 20px
-
-/* form */
-.comment .comment-form
-  clear: both
-
-.comment-form.collapsed input,
-.comment-form.collapsed button,
-.comment-form.collapsed .btn,
-.comment-form.collapsed .feedback-msg
-  display: none
-
-.comment-form.collapsed textarea
-  height: 30px
-  min-height: 0
-  overflow: hidden
-  resize: none
-
-.comment-form input,
-.comment-form textarea
-  border: solid 1px #ccc
-  display: inline-block
-  padding: 6px 8px
-  width: 100%
-
-.comment-form input,
-.comment-form textarea,
-.comment-form button,
-.comment-form .button
-  margin-bottom: 8px
-  margin-top: 12px
-
-.comment-form input.name
-  margin-right: 20px
-
-.comment-form textarea
-  display: block
-  margin-bottom: 12px
-  min-height: 120px
-  width: 100%
-
-.comment-form .full-width,
-.full-width
-  width: 100%
-
-.feedback-msg
-  color: #e55
-  display: inline-block
-  line-height: 32px
-  min-height: 32px
-  min-width: 32px
-  vertical-align: middle
-
-.feedback-msg.true
-  color: #595
-
-.feedback-msg.submitting
-  background: url(../img/loader.gif) 0 0 no-repeat
+#disqus_thread
+  margin: 60px 40px 0 20px
 
 button,
 .btn,

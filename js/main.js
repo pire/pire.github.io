@@ -85,6 +85,112 @@
         });
 
         hideLazyLoadImg();
+
+        //////////////////////
+        // Contact Form
+        //
+        var cf = {
+            init : function () {
+                this.cacheItems();
+                this.bindEvents();
+            },
+            cacheItems : function () {
+                this.$triggers  = $('#contact-toggle, #close');
+                this.$container = $('#contact');
+                this.$feedBk    = $('#contact-feedback');
+                this.$form      = $('#contact-form');
+                this.$fields    = this.$form.find('input, textarea');
+                this.$submit    = this.$form.find('button');
+                this.$close     = $('#close');
+
+                this.$submit.data('originalText', this.$submit.text());
+            },
+            bindEvents : function () {
+                this.$triggers.click(this.toggleForm);
+                this.$form.submit(this.submitForm);
+
+                this.$fields.keyup(this.updateSubmit);
+
+                $(document).keyup(function(e) {
+                    if( e.which === 27 ) cf.$close.click();
+                });
+
+                this.$container.on('click', '#try-again', this.retry);
+            },
+            clearForm : function () {
+                var $messages = cf.$feedBk.children();
+
+                if( $messages.length ) {
+                    $messages.remove();
+                    cf.$form.show();
+                }
+
+                cf.$feedBk.hide();
+
+                cf.$fields.val('');
+            },
+            showForm : function () {
+                this.$triggers.addClass('selected');
+                this.$submit.text(this.$submit.data('originalText'));
+                this.$container.slideDown(300, function() { cf.$fields.eq(0).focus(); cf.$close.fadeIn(200); });
+            },
+            hideForm : function () {
+                this.$triggers.removeClass('selected');
+                this.$close.fadeOut(200);
+                this.$container.slideUp(300, this.clearForm);
+            },
+            toggleForm : function (e) {
+                e.preventDefault();
+
+                var $this = $(this);
+
+                if( $this.hasClass('selected') || $this.hasClass('force-close') ) {
+                    // hide the form
+                    cf.hideForm();
+                } else {
+                    // show the form
+                    cf.showForm();
+                }
+            },
+            retry : function (e) {
+                e.preventDefault();
+
+                cf.$feedBk.fadeOut(300, function() {
+                    cf.$form.delay(200).fadeIn(400);
+                    cf.updateSubmit();
+                    cf.$submit.text(cf.$submit.data('originalText'));
+                });
+            },
+            updateSubmit : function() {
+                var invalid = cf.$fields.filter(':invalid').length ? true : false;
+                cf.$submit.attr('disabled', invalid);
+            },
+            submitForm : function (e) {
+                e.preventDefault();
+
+                var $this = $(this);
+
+                cf.$submit.attr('disabled', true)
+                          .text('Sending message...');
+
+                $.ajax({
+                    url: '/contact',
+                    type : 'post',
+                    dataType : 'json',
+                    data : $this.serialize(),
+                    success : function(response) {
+                        cf.$container.height(cf.$container.height());
+
+                        $this.fadeOut(400);
+                        cf.$feedBk.html(response.message)
+                                  .delay(401)
+                                  .fadeIn(400);
+                    }
+                });
+            }
+        };
+
+        cf.init();
     });
 
     //////////////////////
@@ -164,15 +270,24 @@
 
                 // append the extra content innit?
                 $con.html(appending.find('#content').html());
+                document.title = appending.find('title').text();
 
                 $('a.selected').removeClass('selected');
-                $('a[href="' + url + '"]').addClass('selected');
+
+                var splitUp = url.split('/'),
+                    blogPage = ( url === '/' || (splitUp.length > 1 && splitUp[1] === 'blog') ),
+                    selection = blogPage ? '[href="/"], a[href="' + url + '"]' : '[href="' + url + '"]',
+                    workPage = (splitUp.length > 1 && splitUp[1] === 'work');
+
+                selection = workPage ? '[href="/work/"], a[href="' + url + '"]' : selection;
+
+                $('a'+ selection).addClass('selected');
 
 
                 if( typeof $.fn.placeholder !== 'undefined' )
                     $('input, textarea').placeholder();
 
-                hideLazyLoadImg()
+                hideLazyLoadImg();
 
                 $con.find('>div').fadeIn(400, function() {
                     if( hash.length > 1 && $('#' + hash[1]) ) {
@@ -182,6 +297,8 @@
                     }
                     $con.removeClass('swapping');
                 });
+
+                DISQUS.reset({ reload: true });
             });
         });
     }
@@ -198,4 +315,14 @@
 
         $(window).scroll();
     }
+
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'p1r3'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
 }(window, window.document, jQuery, jQuery('body'), jQuery('#content')));
