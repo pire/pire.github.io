@@ -1,0 +1,25 @@
+  <article class="work-item enter">
+    <header class="work-item-header">
+      <h1>{{page.title}}<br />
+      <span>{{page.dates}}</span></h1>
+    </header>
+
+    <div class="work-item-content">
+        {{page.content}}
+        <p class="tags">{{page.tags}}</p>
+    </div>
+
+    {% if page.image %}
+    <div class="gallery">
+        {% for i in page.image %}
+        <a href="/uploads/work/{{ page.slug }}/{{ $i }}.png" class="njx"
+          rel="work-gallery-{{ page.slug }}">
+            <img src="/uploads/work/{{ page.slug }}/{{ $i }}-tn.png"
+              class="lazy-load" alt="">
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="clear"></div>
+  </article>

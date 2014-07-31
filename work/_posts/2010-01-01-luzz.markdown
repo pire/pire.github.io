@@ -1,0 +1,12 @@
+---
+layout: work
+title:  "Luzz"
+date:   2010-01-01 00:00:40
+
+dates:  2010
+slug: luzz
+images: [1,2,3,4]
+tags: <3, Flash, php
+---
+
+Luzz.es was a website consisting of a contact form and fullscreen Flash video player. The player loaded custom closed captions via XML to allow an admin to easily edit them whenever the video changed. It was all bespoke.

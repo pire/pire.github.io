@@ -4,25 +4,30 @@ title: Work
 permalink: /work/
 ---
 
-<div class="home">
-  {% for post in site.categories.work %}
-  <section class="post enter">
-    <h2>
-      <a href="{{ post.url | prepend: site.baseurl }}"
-      title="Read the entry : {{ post.title }}">
-        {{ post.title }}
-      </a>
-    </h2>
+{% for post in site.categories.work %}
+  <article class="work-item enter">
+    <header class="work-item-header">
+      <h2>{{post.title}}<br />
+      <span>{{post.dates}}</span></h2>
+    </header>
 
-    <div class="info">
-      <time class="date" pubdate datetime="{{ post.date }}">
-        {{ post.date | date: "%b %-d, %Y" }}
-      </time>
+    <div class="work-item-content">
+        {{post.content}}
+        <p class="tags">{{post.tags}}</p>
     </div>
 
-    <div class="summary">
-      {{ post.excerpt }}
+    {% if post.images %}
+    <div class="gallery">
+        {% for i in post.images %}
+        <a href="/img/work/{{ post.slug }}/{{ i }}.png" class="njx"
+          rel="work-gallery-{{ post.slug }}">
+            <img src="/img/work/{{ post.slug }}/{{ i }}-tn.png"
+              class="lazy-load" alt="">
+        </a>
+        {% endfor %}
     </div>
-  </section>
-  {% endfor %}
-</div>
+    {% endif %}
+
+    <div class="clear"></div>
+  </article>
+{% endfor %}

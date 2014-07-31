@@ -1,0 +1,12 @@
+---
+layout: work
+title:  "Phipps PR"
+date:   2011-01-01 00:01:00
+
+dates:  2011
+slug: phipps-pr
+images: [1,2,3]
+tags: CSS, HTML, LargeBlue, Squarespace
+---
+
+[Phipps PR](http://thisisphipps.com/) is a simple site for which we maintained its content for a while. It's was built with [Squarespace](http://www.squarespace.com/).

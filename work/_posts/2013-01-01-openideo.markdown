@@ -1,0 +1,14 @@
+---
+layout: work
+title:  "OpenIDEO"
+date:   2014-07-30 15:45:28
+
+dates:  2010-2013
+slug: openideo
+images: [1,2,3,4]
+tags: <3, bfg.repoze, CSS, HTML, jQuery, LargeBlue, Python
+---
+
+> A Web-based platform for innovation where designers and other creative thinkers create better, together.
+
+I've worked as the core front-end developer on [openIDEO](http://openideo.com) since it's inception back in 2010. It's a constantly evolving platform with a sleek, crisp design which even looks good in IE7, bespoke admin interface and a number of custom javascript widgets.

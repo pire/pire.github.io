@@ -1,0 +1,12 @@
+---
+layout: work
+title:  "Phipps PR"
+date:   2011-01-01 00:00:00
+
+dates:  2011
+slug: ippf
+images: [1,2,3,4]
+tags: CSS, Drupal, HTML, jQuery, LargeBlue, php
+---
+
+I helped theme the new [Drupal 6](http://drupal.com/)-based [IPPF](http://ippf.org/) website. Not much more to add! Just some headachy experiences with Drupal.

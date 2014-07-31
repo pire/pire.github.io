@@ -1,0 +1,14 @@
+---
+layout: work
+title:  "Possum"
+date:   2010-01-01 00:00:20
+
+dates:  2010
+slug: possum
+images: [1,2,3,4]
+tags: <3, CSS, HTML, jQuery, LargeBlue, MySQL, php
+---
+
+> Possum is committed to improving the quality of life of disabled and elderly people by providing innovative technology solutions and support services; enabling empowerment and independence.
+
+I developed a custom CMS for [Possum](http://www.possum.co.uk/) to be able to manage their website and products, events and news. As they deal with assistive technology I used open web standards to ensure the site was accessible, including special consideration to visually impaired users.

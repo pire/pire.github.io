@@ -1,0 +1,12 @@
+---
+layout: work
+title:  "IVCA"
+date:   2010-01-01 00:00:00
+
+dates:  2009-2010
+slug: ivca
+images: [1,2,3,4]
+tags: <3, bfg.repoze, CSS, Flash, HTML, Jinja2, jQuery, LargeBlue, Python
+---
+
+We built a website for IVCA to [showcase their award winning videos](http://player.ivca.org/). I worked with a few excellent server side devs on this one and we used the [Jinja2 template engine](http://jinja.pocoo.org/). As well as the usual development I created a custom Flash video player which provided the desired functionality for IVCA.
