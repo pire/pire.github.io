@@ -16,8 +16,10 @@
 <!--[if lt IE 10]>
 <script src="{{ "/js/libs/jquery.placeholder.min.js" | prepend: site.baseurl }}"></script>
 <![endif]-->
-<script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/jquery.lightbox.min.js" | prepend: site.baseurl }}"></script>
+{% bundle %}
+- /js/main.js
+- /js/jquery.lightbox.min.js
+{% endbundle %}
 
 </body>
 </html>
