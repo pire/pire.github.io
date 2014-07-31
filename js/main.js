@@ -191,6 +191,8 @@
         };
 
         cf.init();
+
+        $('.gallery a').lightbox();
     });
 
     //////////////////////
@@ -298,9 +300,15 @@
                     $con.removeClass('swapping');
                 });
 
+                var $gal = $con.find('.gallery a');
+
+                if( $gal.length )
+                    $gal.lightbox();
+
                 DISQUS.reset({ reload: true });
             });
         });
+
     }
 
     function hideLazyLoadImg() {
