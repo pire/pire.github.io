@@ -174,7 +174,7 @@
                           .text('Sending message...');
 
                 $.ajax({
-                    url: '/contact',
+                    url: 'http://rob-mcc-contact-form.herokuapp.com/send_email',
                     type : 'post',
                     dataType : 'json',
                     data : $this.serialize(),
@@ -189,6 +189,7 @@
                 });
             }
         };
+
 
         cf.init();
 
