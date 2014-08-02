@@ -151,14 +151,16 @@ body
   border-bottom: #444 solid 4px
   box-shadow: inset 0px 0px 10px rgba(0,0,0,.8)
 
-#main-header .centered
-  padding: 0 20px
-
 nav
   font-weight: bold
   padding: 5px 0
   text-align: right
   z-index: 21
+
+.centered
+  margin: 0 auto
+  max-width: 1006px
+  padding: 0 10px
 
 #content.swapping
   background: url(../img/loader.gif) 50% 50% no-repeat fixed
@@ -282,6 +284,8 @@ blockquote:after
    ========================================================================== */
 .gallery
   clear: both
+  font-size: 0
+  margin: 0 -20px
   text-align: center
 
 article .gallery a
@@ -412,18 +416,9 @@ button.pos:disabled
   .enter
     top: 0 !important
 
-@media only screen and (min-width : 980px)
-  article .gallery
-    margin-left: -6px
-    width: 964px
-
 @media only screen and (min-width : 481px)
   ul, ol
     padding: 0 0 0 40px
-
-  .centered
-    margin: 0 auto
-    max-width: 980px
 
   #main-header
     left: 0
@@ -444,7 +439,7 @@ button.pos:disabled
     bottom: 24px
     padding: 0
     position: absolute
-    right: 0
+    right: 10px
 
   #content
     padding-top: 192px
@@ -488,12 +483,6 @@ button.pos:disabled
   .work-item-content
     float: right
     max-width: 650px
-
-  article .gallery a
-    margin: 0 4px 0 -14px
-
-  article .gallery a:nth-child(4n)
-    margin-right: 0
 
   article .gallery img
     max-height: 274px
