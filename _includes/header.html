@@ -45,7 +45,7 @@
         </a>
 
         {% for navItem in site.pages %}
-          {% if navItem.title %}
+          {% if navItem.mainNav == true %}
           <a href="{{ navItem.url | prepend: site.baseurl }}"
             {% if page.url == navItem.url %}class="selected"{% endif %}>
             {{ navItem.title }}
